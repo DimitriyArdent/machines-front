@@ -1,0 +1,139 @@
+.sign{
+    height: 20px;
+}
+.modal-wrap{
+  position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    background: rgba(0, 0, 0, 0.5);
+    align-items: center;
+    justify-content: center;
+}
+.headerCustomClass{
+  color: #f44336;
+}
+
+/* Styles for overlay background */
+.overlay {
+    
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+  }
+  
+  /* Styles for the modal */
+  .modal {
+     
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    background: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  }
+  
+  /* Styles for the close button (X) */
+  .close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+  }
+  
+  /* Styles for the buttons */
+  .modal-buttons {
+    margin-top: 20px;
+  }
+  
+  /* Common button styles */
+  .modal-buttons button {
+    padding: 10px 15px;
+    margin: 0 5px;
+    cursor: pointer;
+  }
+  
+  /* Styles for the "Yes" button */
+  .modal-buttons .yes-button {
+    background-color: #4caf50;
+    color: #fff;
+  }
+  
+  /* Styles for the "No" button */
+  .modal-buttons .no-button {
+    background-color: #f44336;
+    color: #fff;
+  }
+  
+
+  .actions-buttons-wrap{
+    width: 45%;
+  }
+  .image-wrap{
+    width: 45%;
+    display: flex;
+    justify-content: center;
+  }
+  .actions-and-image-wrapper{
+    display: flex;
+    align-items: center;
+  }
+
+  .kendo-column{
+    height: 100px;
+  }
+
+ 
+
+.k-grid .k-table-row.k-table-alt-row{
+  height: 100px;
+}
+.k-grid-table .custom-column .k-grid-cell {
+  height: 100px;
+}
+
+ .image{
+  height: 80px;
+ }
+
+.font{
+  font-family: monospace;
+}
+
+.sure-modal-content{
+  background: #fff;  
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  max-width: 400px; 
+  width: 100%;
+}
+.sure-buttons-wrap{
+  display: flex;
+    width: 80%;
+    justify-content: center;
+}
+
+.sure-buttons{
+  margin: 5px;
+}
+.no-machines-wrap{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50vh;
+}
+
+.no-machines{
+  text-align: center;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #ffc6b3;
+}

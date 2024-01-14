@@ -1,0 +1,36 @@
+<div class="header"> 
+
+
+  <div class="logo-and-button">
+      <div   >
+        <img class="header-image" src="../../../assets/logo.png">
+      </div>
+
+      <div *ngIf="(userFullname$ | async) as fullName" class="button-wrap">
+         
+        <button (click)="openPopUpButtons()" class="button">...</button>
+            <div  *ngIf="isPopUpButtonsOpened" >
+              <popUpButtons  [isPopUpButtonsOpened]="isPopUpButtonsOpened"  (toggleButtons)="onToggleButtons($event)"></popUpButtons>
+            </div>
+      </div>
+  </div>
+
+    <div class="name">
+      <div class="inner-name">
+        Hello
+        <ng-container *ngIf="(userFullname$ | async) as fullName; else guest">
+          {{ fullName || 'Guest' }}
+        </ng-container>
+    </div> 
+    
+      <ng-template #guest>
+        Guest
+      </ng-template>
+    </div>
+      
+     
+    
+       
+
+</div>
+ 

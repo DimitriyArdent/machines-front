@@ -1,0 +1,163 @@
+
+
+<div class="edit-wrap">
+    <form class="modal">
+        <div class="modal-close" (click)="onCloseButtonClick()"> x </div>
+
+        <div class="title-wrapper">
+                <label >machine id</label>
+                 <div class="id">{{machine?.machineid}}</div>
+        </div>
+     
+
+         <label for="capacity">Capacity:</label>
+        <div class="row">
+            <div class="whole-field-wrapper">
+                <div class="value-and-label-wrapper">
+                    <div>new value: </div>
+                    <input readonly type="text" id="capacity" (click)="openCapacityPicker()" name="capacity" [(ngModel)]="formData.capacity" />
+                </div>
+                
+    
+                <div *ngIf="isCapacityOpen" class="centered">
+                    <kendo-dropdownlist
+                        [data]="capacity"
+                        class="centered-content"
+                        (valueChange)="onCapacityChange($event)"
+                      ></kendo-dropdownlist>
+                      <div (click)="closeCapacityPicker()">Close manufacturer id</div>
+                </div>
+            </div>
+             
+
+        </div>
+         
+        <div class="curent-value">{{'Current value:  '+ machine?.capacity }}</div>
+
+        <label for="machinename">Machine Name:</label>
+         <div class="row">
+            <div>new value: </div>
+            <input   type="text" id="machinename" name="machinename" [(ngModel)]="formData.machinename" />
+        </div>
+        
+        <div class="curent-value">{{'Current value:  '+ machine?.machinename }}</div>
+        
+        <label for="manufacturerid">Manufacturer ID:</label>
+        <div class="row">
+            <div class="whole-field-wrapper">
+                    <div class="value-and-label-wrapper">
+                        <div>new value: </div>
+                        <input readonly type="text" id="manufacturerid" (click)="openManufacturerIdPicker()" name="manufacturerid" [(ngModel)]="formData.manufacturerid" />
+                    </div>
+                    <div *ngIf="isManufacturerOpen" class="centered">
+                        <kendo-dropdownlist
+                            [data]="manufacturerIds"
+                            class="centered-content"
+                            (valueChange)="onManufacturerIdChange($event)"
+                          ></kendo-dropdownlist>
+                          <div (click)="closeManufacturerIdPicker()">Close manufacturer id</div>
+                    
+                    </div>
+                     
+                     
+            </div>
+
+            
+            
+        </div>
+        
+        <div class="curent-value">{{'Current value:  '+ machine?.manufacturerid }}</div>
+
+        <label for="purchasedatetime">Purchase Date:</label>
+        <div class="row">
+            <div class="whole-field-wrapper">
+                    <div class="value-and-label-wrapper">
+                        <div>new value: </div>
+                        <input readonly type="text" id="purchasedatetime" (click)="openDatePicker()" name="purchasedatetime" [(ngModel)]="formData.purchasedatetime" />
+                    </div>
+                    <div *ngIf="isDatePickerOpen" class="centered">
+                        <kendo-datetimepicker class="centered-content"   
+                          [(ngModel)]="selectedDateTime"
+                        (valueChange)="onDateTimePickerValueChange($event)">
+                        </kendo-datetimepicker>
+                        <div (click)="closeDatePicker()">Close Datepicker</div>
+                    
+                    </div>
+            </div>
+            
+            
+        </div>
+       
+        <div class="curent-value">{{'Current value:  '+ machine?.purchasedatetime }}</div>
+
+        <label for="yearofmanufacture">Year of Manufacture:</label>
+        <div class="row">
+            <div class="whole-field-wrapper">
+                    <div class="value-and-label-wrapper">
+                        <div>new value: </div>
+                        <input readonly type="text" id="yearofmanufacture" (click)="openYearPicker()" name="yearofmanufacture" [(ngModel)]="formData.yearofmanufacture" />
+                    </div>
+
+                    <div *ngIf="isYearPickerOpen" class="centered">
+                        <kendo-dropdownlist
+                            [data]="years"
+                            class="centered-content"
+                            (valueChange)="onYearPickerValueChange($event)"
+                          ></kendo-dropdownlist>
+                          <div (click)="closeYearPicker()">Close Yearpicker</div>
+                    
+                    </div>
+            </div>
+
+           
+           
+        </div>
+        
+        <div class="curent-value">{{'Current value:  '+ machine?.yearofmanufacture }}</div>
+
+        <label for="machinestatus">Machine Status:</label>
+        <div class="row">
+            <div class="whole-field-wrapper"> 
+                 <div class="value-and-label-wrapper">
+                        <div>new value: </div>
+                        <input readonly type="text" id="machinestatus" (click)="openStatusPicker()" name="machinestatus" [(ngModel)]="formData.machinestatus" />
+                  </div>
+                  <div *ngIf="isStatusOpen" class="centered">
+                    <kendo-dropdownlist
+                        [data]="status"
+                        class="centered-content"
+                        (valueChange)="onStatusChange($event)"
+                      ></kendo-dropdownlist>
+                      <div (click)="closeStatusPicker()">Close Statuspicker</div>
+                
+                </div>
+            </div>
+
+           
+          
+        </div>
+        
+        <div class="curent-value">{{ 'Current value:  '+machine?.machinestatus }}</div>
+
+        <div class="image-position">
+            <label>image</label>
+            <div>img url</div>
+            <input   type="text" id="imageurl"   name="imageurl"  [(ngModel)]="formData.imageurl">
+        </div>
+       
+        <button class="submit-button" type="button"  (click)="onSubmitClick()" >Save Changes</button>
+      </form>
+
+
+       
+
+</div>
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 

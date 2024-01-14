@@ -1,0 +1,84 @@
+<toolbar [machines]="machines" (machinesChanged)="handleMachinesChanged($event)"  (numberOfMachinesPerPage)="mchPerPage($event)"></toolbar>
+
+<div *ngIf="machines.length > 0" class="font">
+
+    <kendo-grid [data]="machines" [filterable]="true"   #myGrid
+    [sortable]="true" [resizable]="true" [pageable]="true" [pageSize]="machinesPerPage" 
+    [kendoGridBinding]="machines" (filterChange)="onGridFilterChange($event)" (sortChange)="onGridSortChange($event)">
+
+
+
+
+        
+        <kendo-grid-column  [width]="350" title="actions" > 
+            <ng-template kendoGridCellTemplate let-dataItem>
+                <div class="actions-and-image-wrapper">
+                    <div class="actions-buttons-wrap">
+                        <kendo-button [primary]="true" (click)="actionsManagment('startEdit', dataItem)">edit</kendo-button>
+                        <kendo-button (click)="actionsManagment('startDelete', dataItem)">delete</kendo-button>
+                    </div>
+                    <div class="image-wrap">
+                         
+                        <img class="image"   [src]="(dataItem.imageurl && dataItem.imageurl!= 'None' )?dataItem.imageurl:'../../../assets/machine.jpeg'" alt="machine">
+                    </div>
+       
+                </div>
+            </ng-template>
+        </kendo-grid-column>
+
+
+
+
+
+
+        <kendo-grid-column field="machineid" title="ID"  >  </kendo-grid-column>
+        <kendo-grid-column field="capacity" title="capacity"> </kendo-grid-column>
+        <kendo-grid-column [filterable]="true" field="machinename" title="name"></kendo-grid-column>  
+
+
+
+
+        <kendo-grid-column field="machinestatus" title="status"> 
+            <ng-template kendoGridCellTemplate let-dataItem>
+                <div>
+                    <img class="sign" *ngIf="dataItem.machinestatus === 0" src="../../../assets/redxcircle.png" alt="Status 0">
+
+                </div>
+                <div>
+                    <img class="sign" *ngIf="dataItem.machinestatus === 1" src="../../../assets/green_check.png" alt="Status 1">
+                </div>
+                
+            </ng-template>
+        </kendo-grid-column>
+        <kendo-grid-column field="manufacturerid" title="manufacturer ID"> </kendo-grid-column>
+        <kendo-grid-column field="purchasedatetime" title="purchase date"></kendo-grid-column>  
+        <kendo-grid-column field="yearofmanufacture" title="year of manufacture"> </kendo-grid-column>
+    </kendo-grid>
+</div>
+
+
+<div *ngIf="machines.length === 0" class="no-machines-wrap">
+    <p class="no-machines"> No machines available.</p>
+</div>
+ 
+
+<edit class="modal-wrap"  *ngIf="isEditVisible"  
+(closeEvent)="closeModal()" 
+[currentMachine]="currentMachine" 
+(editData)="actionsManagment( 'submitEdit',$event)"
+ ></edit>
+     
+
+
+
+ <div class="modal-wrap" *ngIf="isDeleteModalOpen">
+    <div class="sure-modal-content"  id="modal">
+        <span   id="closeModalBtn">&times;</span>
+        <p>Are you sure you want to delete this machine?</p>
+        <p> machine id: {{toBeDeletedId}}</p>
+        <div class="sure-buttons-wrap" >
+        <button  class="sure-buttons" (click)="actionsManagment('delete' )">Yes</button>
+        <button   class="sure-buttons" onclick="handleNo()">No</button>
+        </div>
+    </div>
+</div>

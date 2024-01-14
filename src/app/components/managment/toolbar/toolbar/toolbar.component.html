@@ -1,0 +1,19 @@
+<div class="meta-wrap">
+        <div class="sub-meta-wrap">
+              <kendo-button (click)="openAddModal()" >Add</kendo-button>
+              <kendo-button (click)="refresh()">Refresh</kendo-button>
+               <div class="dropdown-wrap"><kendo-dropdownlist (valueChange)="onStatusChange($event)"  [data]="numberOfPages" ></kendo-dropdownlist></div>
+        
+               
+        </div>
+        <div>
+            <edit *ngIf="isModalOpened"  (closeEvent)="closeModal()"     class="modal-wrap"  (editData)="actionsManagment( 'addNewMachine',$event)"   ></edit>
+            <div *ngIf="warningOpen"  class="warning" >all fields (except image) must be completed</div>
+        </div>
+        
+        
+ 
+
+
+      
+</div>
